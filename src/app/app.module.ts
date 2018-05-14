@@ -5,27 +5,11 @@ import { MyApp } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
 import { IonicStorageModule } from '@ionic/storage';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { WishesPage } from '../pages/wishes/wishes';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage} from '../pages/login/login';
 import { NearbyPage } from '../pages/nearby/nearby';
-import { PerfilPage } from '../pages/perfil/perfil';
 import { MessagesPage } from '../pages/messages/messages';
-import { RegisterUserPage } from '../pages/register-user/register-user';
-import { EditPerfilPage } from '../pages/edit-perfil/edit-perfil';
-import { RecoverPasswordPage } from '../pages/recover-password/recover-password';
-import { ListPerfilesPage } from '../pages/list-perfiles/list-perfiles';
-import { ListCategoriesPage } from '../pages/list-categories/list-categories';
-import { PymesPage } from '../pages/pymes/pymes';
-import { IndependientsPage } from '../pages/independients/independients';
-import { SellersPage } from '../pages/sellers/sellers';
-import { SavePymesPage } from '../pages/save-pymes/save-pymes';
-import { SaveIndependientsPage } from '../pages/save-independients/save-independients';
-import { SaveSellersPage } from '../pages/save-sellers/save-sellers';
-import { ListProductsPage } from '../pages/list-products/list-products';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -50,27 +34,11 @@ import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
     TabsPage,
-    WishesPage,
     LoginPage,
     NearbyPage,
-    PerfilPage,
-    MessagesPage,
-    RegisterUserPage,
-    EditPerfilPage,
-    RecoverPasswordPage,
-    ListPerfilesPage,
-    ListCategoriesPage,
-    PymesPage,
-    IndependientsPage,
-    SellersPage,
-    SavePymesPage,
-    SaveIndependientsPage,
-    SaveSellersPage,
-    ListProductsPage
+    MessagesPage
   ],
   imports: [
     BrowserModule,
@@ -91,27 +59,11 @@ import { MatIconModule } from '@angular/material/icon';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
     TabsPage,
-    WishesPage,
     LoginPage,
     NearbyPage,
-    PerfilPage,
-    MessagesPage,
-    RegisterUserPage,
-    EditPerfilPage,
-    RecoverPasswordPage,
-    ListPerfilesPage,
-    ListCategoriesPage,
-    PymesPage,
-    IndependientsPage,
-    SellersPage,
-    SavePymesPage,
-    SaveIndependientsPage,
-    SaveSellersPage,
-    ListProductsPage
+    MessagesPage
   ],
   providers: [
     StatusBar,

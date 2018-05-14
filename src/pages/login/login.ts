@@ -5,8 +5,8 @@ import { UserProvider } from '../../providers/user/user';
 import { Storage } from '@ionic/storage';
 import { Angular2TokenService} from 'angular2-token';
 import { ROOT } from '../../config/routes';
-import { RegisterUserPage} from '../register-user/register-user';
-import { RecoverPasswordPage } from '../recover-password/recover-password'
+import { TabsPage } from '../tabs/tabs';
+
 
 
 @IonicPage()
@@ -44,7 +44,7 @@ export class LoginPage {
       password: ['', Validators.required]
     });    
 
-    this.currentTab = this.navParams.get("data");
+    //this.currentTab = this.navParams.get("data");
 
     this.events.subscribe("userLogin", (user) => {
       this.user = user;
@@ -53,16 +53,8 @@ export class LoginPage {
     });      
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage a:', this.currentTab);
+    console.log('ionViewDidLoad LoginPage a:');
   }
-
-  goToSignIn(){
-    this.navCtrl.push(RegisterUserPage);
-  }
-
-  goToRecoverPassword(){
-    this.navCtrl.push(RecoverPasswordPage);
-  } 
 
   removeSpaces(email){
     let strParse = new String(email.value);
@@ -80,46 +72,10 @@ export class LoginPage {
       this.messages("Contraseña invalida");
       return
     }
+    this.navCtrl.setRoot(TabsPage);
+    //let loading = this.loading.create({ content: 'Cargando...' });
+    //loading.present();
 
-    let loading = this.loading.create({ content: 'Cargando...' });
-    loading.present();
-    this._tokenService.signIn({
-      email:    this.form.value.email,
-      password: this.form.value.password
-    }).subscribe(
-      data => {
-        console.log(data);
-        //this.loading=false;
-        var token, uid, client;
-        token = data['headers'].get('access-token');
-        client = data['headers'].get('client');
-        uid = data['headers'].get('uid');
-        data = JSON.parse(data['_body']);
-        this.user = data['data'];
-        console.log(this.user)
-        let header={
-          token:token,
-          client:client,
-          uid:uid
-        }
-        console.log(header);
-        this.storage.set('headers', header);
-        this.storage.set('user', JSON.stringify(this.user));
-        loading.dismiss();
-        this.events.publish("userLogin", this.user);
-        this.menuCtrl.enable(true);
-        this.navCtrl.setRoot(this.currentTab);
-      },
-      error =>    {
-        console.log(error);
-        loading.dismiss();
-        //this.loading=false;
-        //this.errorHttp = true; this.loading=false; console.log(error._body);
-        if (error && '_body' in error){          
-          this.messages("Credenciales invalidas. Por favor intente de nuevo.");
-        }
-      }
-    );
   }
 
   messages(message){

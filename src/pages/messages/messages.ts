@@ -20,26 +20,12 @@ export class MessagesPage {
     this.events.subscribe("userLogin", (user) => {
       this.user = user;
       console.log("events in component app", this.user)
-    });  	
-  	this.checkLogin();
+    }); 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MessagesPage');
   }
-
-  checkLogin() {
-    this.storage.get('user').then((user) => {
-      console.log(user)
-      if (user) {
-        this.user = JSON.parse(user);
-  		this.getMessage();
-      }else{
-      	this.navCtrl.setRoot("LoginPage",{data: "MessagesPage"});
-      }
-
-    });//storage user
-  }  
 
   getMessage(){
 

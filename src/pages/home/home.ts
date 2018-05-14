@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, Events, AlertController, LoadingController, ToastController } from 'ionic-angular';
-import { ListPerfilesPage } from '../list-perfiles/list-perfiles';
-import { IndependientsPage } from '../independients/independients';
 import { Storage } from '@ionic/storage';
-import { SellersPage } from '../sellers/sellers';
-import { PymesPage } from '../pymes/pymes';
-import { SavePymesPage } from '../save-pymes/save-pymes';
-import { SaveIndependientsPage } from '../save-independients/save-independients';
-import { SaveSellersPage } from '../save-sellers/save-sellers';
-import { ListProductsPage } from '../list-products/list-products';
 import { ROOT } from '../../config/routes';
 import { Angular2TokenService} from 'angular2-token'
 import { routes } from '../../config/routes';
@@ -59,7 +51,7 @@ export class HomePage {
       });
       confirm.present();      
     }else{
-      this.navCtrl.push(SavePymesPage,{user_id: this.user.id});
+      //this.navCtrl.push(SavePymesPage,{user_id: this.user.id});
     }
   }
 
@@ -79,7 +71,7 @@ export class HomePage {
       });
       confirm.present();      
     }else{
-      this.navCtrl.push(SaveIndependientsPage,{user_id: this.user.id});
+      //this.navCtrl.push(SaveIndependientsPage,{user_id: this.user.id});
     }
   }
 
@@ -118,7 +110,7 @@ export class HomePage {
           console.log(pymes);
           this.messages("Ya ha creado un perfil para vender y solo puede tener uno");
         }else{
-          this.navCtrl.push(SaveSellersPage,{user_id: this.user.id});
+          //this.navCtrl.push(SaveSellersPage,{user_id: this.user.id});
         }
       },
       error =>  {
@@ -146,30 +138,6 @@ export class HomePage {
       position: 'top'
     });
     toast.present()
-  }
-
-  goList(perfil){
-  	this.navCtrl.push(ListPerfilesPage,{data: perfil});
-  }
-
-  goListPymes(){
-    this.navCtrl.push(PymesPage);
-  }
-
-  goListIndependients(){
-    this.navCtrl.push(IndependientsPage);
-  }
-
-  goListSellers(){
-    this.navCtrl.push(SellersPage);
-  }
-
-  goListOfertas(){
-    //this.navCtrl.push(IndependientsPage);
-  }
-
-  goListProducts(){
-    this.navCtrl.push(ListProductsPage);
   }
 
 }
